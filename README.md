@@ -8,7 +8,7 @@ colorTo: blue
 sdk: streamlit
 sdk_version: 1.32.0
 app_file: app.py
-hf_repo: YOUR_USERNAME/jawani-ai-guru
+hf_repo: FP-KCV/jawani-ai-guru
 pinned: false
 ---
 
