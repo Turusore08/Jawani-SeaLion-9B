@@ -1,0 +1,85 @@
+name: Upload to HuggingFace
+
+on:
+  push:
+    branches:
+      - main
+      - master
+    paths:
+      - 'app.py'
+      - 'requirements.txt'
+      - '.github/workflows/upload-to-huggingface.yml'
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install huggingface-hub
+    
+    - name: Get HuggingFace repo info
+      id: hf_info
+      run: |
+        # Extract HuggingFace username dan repo dari README
+        HF_REPO=$(grep -m 1 "title:" README.md | head -n 1 | sed 's/.*title: //' | sed 's/\s*$//')
+        echo "hf_repo=$HF_REPO" >> $GITHUB_OUTPUT
+        echo "Repository: $HF_REPO"
+    
+    - name: Upload files to HuggingFace
+      env:
+        HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        HF_REPO: ${{ steps.hf_info.outputs.hf_repo }}
+      run: |
+        python << 'EOF'
+        import os
+        from huggingface_hub import HfApi
+        
+        hf_token = os.getenv('HF_TOKEN')
+        repo_name = os.getenv('HF_REPO', 'Jawani-AI-Guru')
+        
+        if not hf_token:
+            raise ValueError("HF_TOKEN tidak ditemukan. Silakan set secret di GitHub repository settings.")
+        
+        api = HfApi()
+        
+        # List file yang akan di-upload
+        files_to_upload = ['app.py', 'requirements.txt']
+        
+        for file in files_to_upload:
+            if os.path.exists(file):
+                print(f"Uploading {file}...")
+                api.upload_file(
+                    path_or_fileobj=file,
+                    path_in_repo=file,
+                    repo_id=repo_name,
+                    repo_type="space",
+                    token=hf_token,
+                    commit_message=f"Auto-update: {file} from GitHub Actions"
+                )
+                print(f"✓ {file} uploaded successfully")
+            else:
+                print(f"⚠ {file} tidak ditemukan, skip...")
+        
+        print("\n✓ All files uploaded to HuggingFace Spaces!")
+        EOF
+    
+    - name: Notify success
+      if: success()
+      run: echo "✓ Successfully updated HuggingFace Space"
+    
+    - name: Notify failure
+      if: failure()
+      run: echo "✗ Failed to update HuggingFace Space"
