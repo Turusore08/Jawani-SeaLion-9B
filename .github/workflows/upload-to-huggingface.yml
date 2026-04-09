@@ -34,7 +34,12 @@ jobs:
       id: hf_info
       run: |
         # Extract HuggingFace username dan repo dari README
-        HF_REPO=$(grep -m 1 "title:" README.md | head -n 1 | sed 's/.*title: //' | sed 's/\s*$//')
+        HF_REPO=$(grep -m 1 "hf_repo:" README.md | head -n 1 | sed 's/.*hf_repo: //' | sed 's/\s*$//')
+        if [ -z "$HF_REPO" ]; then
+          echo "Error: hf_repo tidak ditemukan di README.md"
+          echo "Tambahkan 'hf_repo: YOUR_USERNAME/YOUR_SPACE_NAME' di README.md"
+          exit 1
+        fi
         echo "hf_repo=$HF_REPO" >> $GITHUB_OUTPUT
         echo "Repository: $HF_REPO"
     

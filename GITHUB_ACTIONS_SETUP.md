@@ -4,14 +4,45 @@ Workflow ini mengupload `app.py` dan `requirements.txt` ke HuggingFace Spaces se
 
 ## Setup Langkah demi Langkah
 
-### 1. Dapatkan HuggingFace Token
+### 1. Buat HuggingFace Space
+- Buka https://huggingface.co/spaces
+- Klik **"Create new Space"**
+- **Owner**: Pilih username Anda
+- **Space name**: `jawani-ai-guru` (harus lowercase, tanpa spasi, gunakan `-` atau `_`)
+- **SDK**: Pilih **Streamlit**
+- **Visibility**: Public atau Private sesuai kebutuhan
+- Klik **Create Space**
+
+### 2. Update README.md
+Setelah membuat space, update `README.md` dengan repo_id yang benar:
+```yaml
+---
+title: Jawani AI Guru
+emoji: 👨‍🏫
+colorFrom: green
+colorTo: blue
+sdk: streamlit
+sdk_version: 1.32.0
+app_file: app.py
+hf_repo: YOUR_USERNAME/jawani-ai-guru  # ← Ganti YOUR_USERNAME dengan username HF Anda
+pinned: false
+---
+```
+
+**⚠️ Penting:** Repo ID harus mengikuti aturan:
+- Hanya alphanumeric, `-`, `_`, atau `.`
+- Tidak boleh mulai/akhir dengan `-` atau `.`
+- Maksimal 96 karakter
+- Format: `username/space-name`
+
+### 3. Dapatkan HuggingFace Token
 - Buka https://huggingface.co/settings/tokens
 - Klik "New token"
 - Beri nama token (misal: `github-actions`)
 - Pilih role: **Write** (untuk bisa upload)
 - Salin token (pastikan disimpan dengan aman!)
 
-### 2. Tambahkan Token ke GitHub Secrets
+### 4. Tambahkan Token ke GitHub Secrets
 - Buka repository GitHub Anda: `https://github.com/YOUR_USERNAME/YOUR_REPO`
 - Masuk ke **Settings** → **Secrets and variables** → **Actions**
 - Klik **New repository secret**
@@ -19,17 +50,17 @@ Workflow ini mengupload `app.py` dan `requirements.txt` ke HuggingFace Spaces se
 - Value: (paste token dari HuggingFace)
 - Klik **Add secret**
 
-### 3. Pastikan Struktur Repository
+### 5. Pastikan Struktur Repository
 ```
 .github/
 └── workflows/
     └── upload-to-huggingface.yml  ← Workflow file (sudah ada)
 app.py                               ← File utama
 requirements.txt                     ← Dependencies
-README.md                            ← Dokumentasi (harus ada title)
+README.md                            ← Dokumentasi (harus ada hf_repo)
 ```
 
-### 4. Verifikasi README.md
+### 6. Verifikasi README.md
 Pastikan `README.md` memiliki format HuggingFace Spaces dengan yaml frontmatter:
 ```yaml
 ---
@@ -40,9 +71,14 @@ colorTo: blue
 sdk: streamlit
 sdk_version: 1.32.0
 app_file: app.py
+hf_repo: YOUR_USERNAME/jawani-ai-guru
 pinned: false
 ---
 ```
+
+### 7. Push ke GitHub
+- Commit dan push semua perubahan ke branch `main` atau `master`
+- Workflow otomatis akan jalan dan upload ke HuggingFace Space
 
 ## Cara Kerja Workflow
 
@@ -54,7 +90,7 @@ pinned: false
 1. Checkout code dari repository
 2. Setup Python 3.10
 3. Install `huggingface-hub` library
-4. Extract nama HuggingFace Space dari README
+4. Extract nama HuggingFace Space dari README (`hf_repo` field)
 5. Upload `app.py` dan `requirements.txt`
 6. Push ke HuggingFace Spaces dengan commit message otomatis
 
@@ -67,6 +103,11 @@ pinned: false
   - Error message jika ada masalah
 
 ## Troubleshooting
+
+**❌ Repo ID invalid?**
+- Pastikan `hf_repo` di README.md menggunakan format yang benar
+- Contoh: `username/jawani-ai-guru` (bukan `Jawani AI Guru`)
+- Tidak boleh ada spasi, gunakan `-` atau `_` sebagai separator
 
 **❌ Token tidak valid?**
 - Verifikasi token sudah benar di GitHub Secrets
