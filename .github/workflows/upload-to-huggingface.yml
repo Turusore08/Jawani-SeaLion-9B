@@ -53,10 +53,13 @@ jobs:
         from huggingface_hub import HfApi
         
         hf_token = os.getenv('HF_TOKEN')
-        repo_name = os.getenv('HF_REPO', 'Jawani-AI-Guru')
+        repo_name = os.getenv('HF_REPO')
         
         if not hf_token:
             raise ValueError("HF_TOKEN tidak ditemukan. Silakan set secret di GitHub repository settings.")
+        
+        if not repo_name:
+            raise ValueError("HF_REPO tidak ditemukan. Pastikan hf_repo sudah di-set di README.md")
         
         api = HfApi()
         
