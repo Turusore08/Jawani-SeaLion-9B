@@ -10,7 +10,7 @@ def load_models():
     bert_path = "FP-KCV/javanese-honorific-classifier"
     llm_path = "FP-KCV/jawani-sealion-gatra-2-9b"
     
-    # Load IndoBERT Classifier
+    # Load IndoBERT Classifiers
     b_tokenizer = AutoTokenizer.from_pretrained(bert_path)
     b_model = AutoModelForSequenceClassification.from_pretrained(bert_path).to("cuda")
     
