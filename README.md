@@ -72,16 +72,14 @@
 
 Sistem secara otomatis mendeteksi dan mengidentifikasi tingkat bahasa Jawa yang digunakan:
 
-```
-┌─────────────────────────────────────┐
-│   TINGKAT BAHASA JAWA (UNGGAH-UNGGUH)    │
-├─────────────────────────────────────┤
-│ 🔹 Ngoko Lugu      → Santai & Kasual     │
-│ 🔹 Ngoko Alus      → Halus Kasual        │
-│ 🔹 Krama Lugu      → Formal Standar      │
-│ 🔹 Krama Inggil    → Formal Tertinggi    │
-└─────────────────────────────────────┘
-```
+### TINGKAT BAHASA JAWA (UNGGAH-UNGGUH)
+
+| Tingkat Bahasa | Keterangan |
+|---|---|
+| **Ngoko Lugu** | Santai & Kasual |
+| **Ngoko Alus** | Halus Kasual |
+| **Krama Lugu** | Formal Standar |
+| **Krama Inggil** | Formal Tertinggi |
 
 ### 👥 **2. Tiga Persona AI yang Berbeda**
 
@@ -423,26 +421,26 @@ Generation Settings:
 
 ### **Model Performance**
 
-```
-┌─────────────────────────────────────┐
-│      JAVANESE-BERT CLASSIFIER       │
-├─────────────────────────────────────┤
-│ Accuracy (Unggah-Ungguh):    89-92% │
-│ F1-Score:                     0.88  │
-│ Latency:                      <50ms  │
-│ Inference Device:             GPU   │
-└─────────────────────────────────────┘
+### JAVANESE-BERT CLASSIFIER
 
-┌─────────────────────────────────────┐
-│        SEA-LION 9B LLM              │
-├─────────────────────────────────────┤
-│ Context Length:              4096    │
-│ Output Tokens (Avg):          120    │
-│ Latency (Per Token):         50-100ms│
-│ Perplexity (Javanese):       ~15     │
-│ Response Quality:            Very Good│
-└─────────────────────────────────────┘
-```
+| Metric | Value |
+|---|---|
+| **Accuracy (Unggah-Ungguh)** | 89-92% |
+| **F1-Score** | 0.88 |
+| **Latency** | <50ms |
+| **Inference Device** | GPU |
+
+---
+
+### SEA-LION 9B LLM
+
+| Metric | Value |
+|---|---|
+| **Context Length** | 4096 |
+| **Output Tokens (Avg)** | 120 |
+| **Latency (Per Token)** | 50-100ms |
+| **Perplexity (Javanese)** | ~15 |
+| **Response Quality** | Very Good |
 
 ### **Benchmark Results**
 
