@@ -1,4 +1,4 @@
-# 🦁 Jawani AI - Asisten Bahasa Jawa
+# 🦁 FP-KCV/jawani-sealion-gatra-2-9b
 
 <div align="center">
 
