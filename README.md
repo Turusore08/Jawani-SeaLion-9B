@@ -9,7 +9,7 @@
 
 **Asisten AI cerdas berbasis bahasa Jawa dengan teknologi hybrid pipeline** 🦁✨
 
-[Fitur](#-fitur-utama) • [Instalasi](#-instalasi) • [Penggunaan](#-penggunaan) • [Struktur](#-struktur-proyek) • [Model](#-model-yang-digunakan)
+Arya Pratama Rhama Putra, Raditya Akmal, Fa'iz Akbar Hizbullah
 
 </div>
 
@@ -115,146 +115,14 @@ Sistem secara otomatis mendeteksi dan mengidentifikasi tingkat bahasa Jawa yang 
 
 ---
 
-## ⚡ Quick Start
-
-### 📋 Prasyarat
-
-- Python 3.9+
-- CUDA 11.8+ (opsional, untuk inference lebih cepat)
-- RAM minimal 16GB
-- GPU dengan VRAM 8GB+ (recommended)
-
-### 🔧 Instalasi
-
-1. **Clone Repository**
-   ```bash
-   git clone https://github.com/yourusername/Jawani-SeaLion-9B.git
-   cd Jawani-SeaLion-9B
-   ```
-
-2. **Setup Virtual Environment**
-   ```bash
-   # Windows
-   python -m venv venv
-   venv\Scripts\activate
-   
-   # Linux/Mac
-   python -m venv venv
-   source venv/bin/activate
-   ```
-
-3. **Install Dependencies**
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-4. **Jalankan Aplikasi**
-   ```bash
-   streamlit run bot/asistenbot.ipynb
-   ```
-
----
-
 ## 💻 Penggunaan
 
-### **Opsi 1: Streamlit Interface**
-
-Aplikasi interaktif dengan UI yang user-friendly:
-
-```bash
-streamlit run bot/asistenbot.ipynb
-```
-
-### **Opsi 2: Bot Telegram** (Jika Dikonfigurasi)
+### **Bot Telegram** (Jika Dikonfigurasi)
 
 1. Cari bot: `@JawaniAIBot`
 2. Ketik `/start` untuk memulai
 3. Pilih persona dan tingkat bahasa
 4. Mulai percakapan!
-
-### **Opsi 3: Python Script**
-
-```python
-from bot.asistenbot import JawaniAI
-
-# Inisialisasi
-jawani = JawaniAI(persona="guru")
-
-# Generate respons
-response = jawani.generate("Apa arti tembung 'slamet'?")
-print(response)
-```
-
----
-
-## 💬 Contoh Percakapan
-
-### **Contoh 1: Belajar Kosakata (Guru Mode)**
-
-```
-👤 User (Ngoko Lugu):
-   Apa arti tembung "slamet"?
-
-🤖 Jawani (Guru Basa Jawa - Krama Inggil):
-   Tembung "slamet" menika tumuju pada "selamat" utawi "aman". 
-   
-   Tuladha:
-   - "Sugeng slamet" = Selamat pagi
-   - "Slamet jalan" = Selamat jalan
-   
-   Ingkang menapa malih ingkang saged kula biyantu?
-```
-
-### **Contoh 2: Percakapan Santai (Teman Dekat)**
-
-```
-👤 User (Ngoko Lugu):
-   Halo, aku mau belajar basa Jawa
-
-🤖 Jawani (Kanca Cerak - Ngoko Lugu):
-   Sugeng rawuh, kanca! Aku Jawani, asesene kowe belajar Jawa.
-   
-   Apa sing pengin kowe pelajari hari ini?
-   - Kosakata baru?
-   - Tata bahasa?
-   - Ngobrol santai?
-```
-
-### **Contoh 3: Koreksi Tata Bahasa**
-
-```
-👤 User (Campur):
-   Saya suka makan gudeg
-
-🤖 Jawani (Guru Basa Jawa):
-   Nggih, teks menika sae. Nanging menawi ngangge basa Jawa murni:
-   
-   ❌ "Saya suka makan gudeg"
-   ✅ "Kula remen nedha gudeg" (Krama Lugu)
-   ✅ "Aku seneng mangan gudeg" (Ngoko Lugu)
-   
-   Bedane ing:
-   - "kula/aku" = Subjek (sesuai unggah-ungguh)
-   - "remen/seneng" = Suka
-   - "nedha/mangan" = Makan
-```
-
-### **Contoh 4: Tips Pembelajaran**
-
-```
-👤 User:
-   Mbak, aku bingung kapan harus nggunakan Krama Inggil
-
-🤖 Jawani (Guru Basa Jawa):
-   Niku penggalihan ingkang sae! Krama Inggil dipunginakaken:
-   
-   ✓ Berbicara kepada orang yang jauh lebih tua
-   ✓ Dalam konteks formal/resmi
-   ✓ Terhadap orang yang dihormati
-   ✓ Dalam acara-acara penting
-   
-   Contone: Ngomong karo guru, orang tua, atau pejabat.
-```
 
 ---
 
@@ -292,38 +160,6 @@ Jawani-SeaLion-9B/
 | `bot/kancabot.ipynb` | Bot dengan persona teman (Ngoko Lugu) |
 | `training model/classification-javanese-lanjutan.ipynb` | Training BERT untuk klasifikasi unggah-ungguh |
 | `training model/jawani-gatra-2.ipynb` | Benchmark dan testing LLM |
-
----
-
-## 🛠️ Development Setup
-
-### **Setup Environment untuk Development**
-
-```bash
-# Clone dan setup
-git clone <repo-url>
-cd Jawani-SeaLion-9B
-
-# Create virtual environment
-python -m venv venv
-source venv/bin/activate  # Linux/Mac
-# atau
-venv\Scripts\activate     # Windows
-
-# Install dev dependencies
-pip install -r requirements.txt
-pip install jupyter ipykernel  # Untuk notebook development
-```
-
-### **Menjalankan Jupyter Notebooks**
-
-```bash
-# Buka Jupyter Lab
-jupyter lab
-
-# Atau buka file notebook tertentu
-jupyter notebook bot/asistenbot.ipynb
-```
 
 ---
 
@@ -375,45 +211,8 @@ Generation Settings:
 | **Python Version** | 3.9+ |
 | **RAM** | Minimal 16GB, Recommended 32GB |
 | **GPU** | VRAM 8GB+ (CUDA 11.8+) |
-| **Storage** | ~30GB untuk models |
+| **Storage** | ~18GB untuk models |
 | **Response Time** | 5-15 detik per pesan |
-
----
-
-## 🔧 Troubleshooting
-
-### ❌ **Bot Tidak Merespons**
-```
-✓ Periksa koneksi internet
-✓ Pastikan model sudah ter-load
-✓ Check GPU memory (nvidia-smi)
-✓ Restart Streamlit: Ctrl+C → streamlit run bot/asistenbot.ipynb
-```
-
-### ❌ **Out of Memory Error**
-```
-✓ Tutup aplikasi lain yang menggunakan GPU
-✓ Gunakan CPU inference (lebih lambat)
-✓ Kurangi batch size
-✓ Clear cache: torch.cuda.empty_cache()
-```
-
-### ❌ **Respons Tidak Akurat atau Tidak Relevan**
-```
-✓ Verifikasi klasifikasi unggah-ungguh sudah benar
-✓ Pastikan input dalam bahasa Indonesia/Jawa
-✓ Coba ubah persona (guru/kanca/asisten)
-✓ Tingkatkan temperature jika terlalu generik
-```
-
-### ❌ **Model Load Error**
-```
-✓ Download model secara manual:
-   from transformers import AutoModel, AutoTokenizer
-   model = AutoModel.from_pretrained("model-id")
-   
-✓ Gunakan pretrained model langsung dari Hugging Face
-```
 
 ---
 
@@ -425,9 +224,7 @@ Generation Settings:
 
 | Metric | Value |
 |---|---|
-| **Accuracy (Unggah-Ungguh)** | 89-92% |
-| **F1-Score** | 0.88 |
-| **Latency** | <50ms |
+| **Accuracy (Unggah-Ungguh)** | 85% |
 | **Inference Device** | GPU |
 
 ---
@@ -436,90 +233,28 @@ Generation Settings:
 
 | Metric | Value |
 |---|---|
-| **Context Length** | 4096 |
-| **Output Tokens (Avg)** | 120 |
-| **Latency (Per Token)** | 50-100ms |
-| **Perplexity (Javanese)** | ~15 |
-| **Response Quality** | Very Good |
-
-### **Benchmark Results**
-
-| Test | Result | Status |
-|------|--------|--------|
-| Unggah-ungguh Classification | 91% | ✅ |
-| Language Relevance | 87% | ✅ |
-| Factual Accuracy | 84% | ✅ |
-| Response Latency | 8s avg | ⚠️ |
-| Memory Usage | 14GB | ✅ |
-
----
-
-## 🎯 Roadmap
-
-### **Phase 1: MVP** ✅ (Current)
-- [x] Classifier BERT untuk unggah-ungguh
-- [x] Sea-Lion 9B integration
-- [x] Streamlit interface
-- [x] 3 persona bot
-- [x] Basic inference optimization
-
-### **Phase 2: Enhancement** 🚧 (Planned)
-- [ ] Web API (FastAPI)
-- [ ] Telegram Bot Integration
-- [ ] Improved context memory
-- [ ] Audio input support
-- [ ] Multi-turn conversation optimization
-
-### **Phase 3: Advanced** 📅 (Future)
-- [ ] Fine-tuning pada corpus Javanese lebih besar
-- [ ] Dukungan dialek regional
-- [ ] Voice synthesis (TTS)
-- [ ] Mobile app
-- [ ] Platform pembelajaran kolaboratif
-
----
-
-## 🔐 Security & Privacy
-
-### Data Handling
-- ✅ Input tidak disimpan secara permanen
-- ✅ Proses inference lokal (privacy-first)
-- ✅ Tidak ada telemetri invasif
-- ✅ Model open-source dan transparan
-
-### Best Practices
-```python
-# Sanitisasi input
-input_text = input_text.strip()
-input_text = re.sub(r'[^\w\s\.]', '', input_text)
-
-# Validasi panjang
-if len(input_text) > MAX_INPUT_LENGTH:
-    input_text = input_text[:MAX_INPUT_LENGTH]
-```
+| **Context Length** | 8192 |
+| **Output Tokens (Max)** | 1256 |
+| **Response Quality** | Good |
 
 ---
 
 ## 📚 Referensi & Resources
 
 ### **Paper & Research**
-- BERT: [Devlin et al., 2018](https://arxiv.org/abs/1810.04805)
-- Sea-Lion LLM: Southeast Asia focus language model
-- Javanese NLP: Indonesian Language Resources
-
-### **Useful Links**
-- 🤗 [Hugging Face Model Hub](https://huggingface.co)
-- 📖 [Javanese Wikipedia](https://jv.wikipedia.org)
-- 🎓 [Basa Jawa Online Resources](https://basajawa.com)
+- BERT: [Devlin et al., 2018] (https://arxiv.org/abs/1810.04805)
+- Sea-Lion LLM: Southeast Asia focus language model (https://arxiv.org/abs/2504.05747)
 
 ### **Citation**
 Jika menggunakan model ini dalam penelitian, silakan cite:
 ```bibtex
-@software{jawani2024,
-  title={Jawani: Javanese AI Assistant with Sea-Lion 9B},
-  author={Your Name},
-  year={2024},
-  url={https://github.com/yourusername/Jawani-SeaLion-9B}
+@misc{sea-lion_inggil_2026,
+	author       = { Sea-LION Inggil },
+	title        = { jawani-sealion-gatra-2-9b (Revision 2f42973) },
+	year         = 2026,
+	url          = { https://huggingface.co/FP-KCV/jawani-sealion-gatra-2-9b },
+	doi          = { 10.57967/hf/8277 },
+	publisher    = { Hugging Face }
 }
 ```
 
@@ -561,35 +296,10 @@ Kami menerima kontribusi dalam bentuk:
 
 ---
 
-## 📄 License
-
-Proyek ini dilisensikan di bawah **MIT License**.
-
-**Penjelasan Singkat:**
-- ✅ Gratis untuk penggunaan komersial
-- ✅ Bisa dimodifikasi
-- ✅ Bisa didistribusikan
-- ❌ Tidak ada garansi
-- ⚠️ Harus menyertakan license
-
----
-
-## 👥 Pembuat & Support
-
-### Support & Contact
-- 💬 [GitHub Discussions](https://github.com/yourusername/Jawani-SeaLion-9B/discussions)
-- 🐛 [GitHub Issues](https://github.com/yourusername/Jawani-SeaLion-9B/issues)
-
-### Terima Kasih Kepada
-- 🙏 Komunitas bahasa Jawa
-- 🙏 Hugging Face team
-- 🙏 Semua contributor
-
----
 
 <div align="center">
 
-**Selamat Belajar Bahasa Jawa! Sugeng Sinau! 🎓✨**
+**Selamat Belajar Bahasa Jawa! Matur Suwun! 🎓✨**
 
 Dibuat dengan ❤️ untuk pelestarian bahasa Jawa
 
