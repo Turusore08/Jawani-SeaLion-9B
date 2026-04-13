@@ -119,7 +119,7 @@ Sistem secara otomatis mendeteksi dan mengidentifikasi tingkat bahasa Jawa yang 
 
 ### **Bot Telegram** (Jika Dikonfigurasi)
 
-1. Cari bot: `@JawaniAIBot`
+1. Cari bot: `t.me/Faizgurujawa_bot , t.me/Faiztemenjawa_bot ,  t.me/FaizBisabahasajwa_bot`
 2. Ketik `/start` untuk memulai
 3. Pilih persona dan tingkat bahasa
 4. Mulai percakapan!
